@@ -1,0 +1,573 @@
+/* =====================================================
+   AI GYM COACH — PROFESSIONAL THEME v2
+   Amber #F5A623 · Cyan #00D4FF · Crimson #FF3D57
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --bg:          #08090E;
+  --surface:     #0E1018;
+  --raised:      #141720;
+  --card:        #181C28;
+  --border:      #2A2F3D;
+  --border-hi:   #3A4055;
+
+  --amber:       #F5A623;
+  --amber-soft:  rgba(245,166,35,0.15);
+  --amber-glow:  rgba(245,166,35,0.30);
+  --cyan:        #00D4FF;
+  --cyan-soft:   rgba(0,212,255,0.12);
+  --crimson:     #FF4560;
+  --crimson-soft:rgba(255,69,96,0.15);
+  --green:       #00E676;
+  --green-soft:  rgba(0,230,118,0.12);
+
+  --text:        #F0F2F8;
+  --text-muted:  #8B92A8;
+  --text-faint:  #4A5068;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+.stApp {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', 'AdobeClean', sans-serif !important;
+}
+
+/* ── SIDEBAR ── */
+[data-testid="stSidebar"] {
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown h1,
+[data-testid="stSidebar"] h1 {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  color: var(--amber) !important;
+  font-family: 'DM Mono', monospace !important;
+  padding-bottom: 0.5rem !important;
+}
+
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  font-family: 'DM Mono', monospace !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.4rem !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+  font-size: 0.7rem !important;
+  color: var(--text-faint) !important;
+  letter-spacing: 0.06em !important;
+  font-family: 'DM Mono', monospace !important;
+}
+
+/* ── LAYOUT ── */
+.block-container {
+  padding: 48px 3rem 3rem !important;
+  max-width: 800px !important;
+  font-family: 'DM Sans', 'AdobeClean', sans-serif !important;
+}
+
+/* ── TYPOGRAPHY ── */
+.block-container *,
+[data-testid="stSidebar"] * {
+  font-family: 'DM Sans', 'AdobeClean', sans-serif !important;
+}
+
+.block-container h1,
+[data-testid="stHeadingWithActionElements"] h1 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.block-container h4 {
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  font-family: 'DM Mono', monospace !important;
+}
+
+/* Subtitle under page title */
+.block-container h4:first-of-type {
+  color: var(--text-muted) !important;
+}
+
+p, li {
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+}
+
+/* ── DIVIDER ── */
+hr, [data-testid="stDivider"] {
+  border: none !important;
+  border-top: 1px solid var(--border) !important;
+  margin: 1.25rem 0 !important;
+}
+
+/* ── NUMBER INPUT — text visibility fix ── */
+[data-testid="stNumberInputContainer"] {
+  background: var(--card) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+[data-testid="stNumberInputContainer"]:focus-within {
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 0 3px var(--amber-soft) !important;
+}
+
+[data-testid="stNumberInputContainer"] input,
+[data-testid="stNumberInputContainer"] input[type="number"] {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 0.75rem !important;
+  caret-color: var(--amber) !important;
+  -webkit-text-fill-color: var(--text) !important;
+}
+
+[data-testid="stNumberInputContainer"] input::placeholder {
+  color: var(--text-faint) !important;
+  -webkit-text-fill-color: var(--text-faint) !important;
+}
+
+/* +/- step buttons */
+[data-testid="stNumberInputContainer"] button {
+  background: var(--raised) !important;
+  border: none !important;
+  border-left: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+  border-radius: 0 !important;
+  padding: 0 0.7rem !important;
+  font-size: 1.1rem !important;
+  transition: background 0.15s, color 0.15s !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+  min-width: 36px !important;
+}
+
+[data-testid="stNumberInputContainer"] button:hover {
+  background: var(--amber-soft) !important;
+  color: var(--amber) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* ── TEXT INPUT ── */
+[data-testid="stTextInput"] > div {
+  background: var(--card) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: 4px !important;
+}
+
+[data-testid="stTextInput"] > div:focus-within {
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 0 3px var(--amber-soft) !important;
+}
+
+[data-testid="stTextInput"] input {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: none !important;
+  font-size: 0.95rem !important;
+  -webkit-text-fill-color: var(--text) !important;
+  caret-color: var(--amber) !important;
+}
+
+[data-testid="stTextInput"] input::placeholder {
+  color: var(--text-faint) !important;
+  -webkit-text-fill-color: var(--text-faint) !important;
+}
+
+/* ── SELECT / DROPDOWN ── */
+[data-testid="stSelectbox"] label,
+[data-testid="stNumberInput"] label,
+[data-testid="stTextInput"] label {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  font-family: 'DM Mono', monospace !important;
+  margin-bottom: 0.35rem !important;
+}
+
+[data-testid="stSelectbox"] > div > div,
+[data-baseweb="select"] > div {
+  background: var(--card) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: 4px !important;
+  color: var(--text) !important;
+}
+
+[data-baseweb="select"] > div:focus-within {
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 0 3px var(--amber-soft) !important;
+}
+
+/* Selected option text */
+[data-baseweb="select"] [data-testid="stSelectboxVirtualDropdown"],
+[data-baseweb="select"] span,
+[data-baseweb="select"] div[class*="valueContainer"] {
+  color: var(--text) !important;
+}
+
+/* Dropdown arrow */
+[data-baseweb="select"] svg {
+  color: var(--text-muted) !important;
+  fill: var(--text-muted) !important;
+}
+
+/* Dropdown menu */
+[data-baseweb="popover"],
+[data-baseweb="menu"],
+[data-baseweb="popover"] > div {
+  background: var(--card) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+}
+
+[data-baseweb="menu"] li,
+[data-baseweb="popover"] ul li {
+  color: var(--text) !important;
+  background: transparent !important;
+  padding: 0.55rem 1rem !important;
+  font-size: 0.9rem !important;
+  transition: background 0.12s !important;
+}
+
+[data-baseweb="menu"] li:hover,
+[data-baseweb="popover"] ul li:hover {
+  background: var(--amber-soft) !important;
+  color: var(--amber) !important;
+}
+
+/* ── BUTTONS ── */
+button,
+.stButton > button,
+[data-testid="stButton"] > button,
+[data-testid="stBaseButton-secondary"],
+[data-testid="stBaseButton-primary"] {
+  background: transparent !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: 4px !important;
+  color: var(--text-muted) !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 0.65rem 1.25rem !important;
+  transition: all 0.18s ease !important;
+  box-shadow: none !important;
+}
+
+.stButton > button:hover,
+[data-testid="stButton"] > button:hover {
+  background: var(--amber-soft) !important;
+  border-color: var(--amber) !important;
+  color: var(--amber) !important;
+  box-shadow: 0 0 18px var(--amber-glow) !important;
+}
+
+/* Start Workout — amber outlined */
+[data-testid="stButton"]:has(button[data-testid*="start"]) > button,
+button[key="start_session_button"] {
+  border-color: var(--amber) !important;
+  color: var(--amber) !important;
+}
+
+/* End Workout — crimson */
+[data-testid="stButton"]:has(button[data-testid*="end"]) > button {
+  border-color: var(--crimson) !important;
+  color: var(--crimson) !important;
+}
+[data-testid="stButton"]:has(button[data-testid*="end"]) > button:hover {
+  background: var(--crimson-soft) !important;
+  box-shadow: 0 0 18px rgba(255,69,96,0.3) !important;
+  color: var(--crimson) !important;
+}
+
+/* ── METRICS ── */
+[data-testid="stMetric"] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 2px solid var(--cyan) !important;
+  padding: 1rem 1.1rem !important;
+  border-radius: 4px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+[data-testid="stMetric"]:hover {
+  border-top-color: var(--amber) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+[data-testid="stMetricValue"] {
+  font-size: 1.7rem !important;
+  font-weight: 300 !important;
+  color: var(--text) !important;
+  letter-spacing: -0.03em !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+[data-testid="stMetricLabel"] {
+  font-size: 0.62rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  font-family: 'DM Mono', monospace !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stMetric"] div label p {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  font-family: 'DM Mono', monospace !important;
+}
+
+/* ── ALERTS ── */
+[data-testid="stAlertContentInfo"],
+div[data-baseweb="notification"] {
+  background: var(--cyan-soft) !important;
+  border: 1px solid rgba(0,212,255,0.25) !important;
+  border-left: 3px solid var(--cyan) !important;
+  border-radius: 4px !important;
+  color: var(--text) !important;
+}
+
+[data-testid="stAlertContentSuccess"] {
+  background: var(--green-soft) !important;
+  border: 1px solid rgba(0,230,118,0.25) !important;
+  border-left: 3px solid var(--green) !important;
+  border-radius: 4px !important;
+  color: var(--text) !important;
+}
+
+[data-testid="stAlertContentInfo"] p,
+[data-testid="stAlertContentSuccess"] p {
+  color: var(--text) !important;
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+}
+
+/* ── TABLE ── */
+.stTable table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  font-size: 0.85rem !important;
+}
+
+.stTable thead tr {
+  background: var(--raised) !important;
+  border-bottom: 2px solid var(--border-hi) !important;
+}
+
+.stTable thead th {
+  font-size: 0.62rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  padding: 0.75rem 1rem !important;
+  font-family: 'DM Mono', monospace !important;
+  background: var(--raised) !important;
+}
+
+.stTable tbody tr {
+  border-bottom: 1px solid var(--border) !important;
+  transition: background 0.12s !important;
+}
+
+.stTable tbody tr:hover {
+  background: var(--raised) !important;
+}
+
+.stTable tbody td {
+  padding: 0.65rem 1rem !important;
+  color: var(--text) !important;
+}
+
+/* ── FORM CONTAINER ── */
+.stForm,
+[data-testid="stForm"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-top: 2px solid var(--amber) !important;
+  border-radius: 4px !important;
+  padding: 1.5rem 1.25rem !important;
+  margin-top: 1.5rem !important;
+}
+
+/* ── DATAFRAME ── */
+.stDataFrame {
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  background: var(--surface) !important;
+}
+
+.stDataFrame div,
+.stDataFrameGlideDataEditor {
+  border-radius: 0 !important;
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+/* ── SIDEBAR NAV LINKS ── */
+[data-testid="stSidebarNavLink"] {
+  border-radius: 3px !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.10em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  padding: 0.5rem 0.75rem !important;
+  transition: all 0.15s !important;
+  font-family: 'DM Mono', monospace !important;
+}
+
+[data-testid="stSidebarNavLink"]:hover,
+[data-testid="stSidebarNavLink"][aria-selected="true"] {
+  background: var(--amber-soft) !important;
+  color: var(--amber) !important;
+}
+
+/* ── SPINNER ── */
+.stSpinner > div {
+  border-top-color: var(--amber) !important;
+}
+
+/* ── MARKDOWN STRONG ── */
+[data-testid="stMarkdownContainer"] strong {
+  color: var(--amber) !important;
+  font-weight: 600 !important;
+}
+
+/* ── CAPTION ── */
+[data-testid="stCaptionContainer"] p {
+  color: var(--text-faint) !important;
+  font-size: 0.72rem !important;
+  font-family: 'DM Mono', monospace !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ── WEBRTC / CAMERA FRAME ── */
+[data-testid="stIFrame"] {
+  border: 1px solid var(--border-hi) !important;
+  border-top: 2px solid var(--cyan) !important;
+  border-radius: 4px !important;
+}
+
+/* ── MISC RESETS ── */
+.stTextInput, .stTextArea, .stNumberInput, .stSlider,
+.stMultiselect, .stRadio, .stCheckbox, .stToggle,
+.stFileUploader, .stColorPicker, .stDateInput, .stTimeInput,
+.stCameraInput, [data-testid="stStatusWidget"] {
+  border-radius: 4px !important;
+}
+
+/* Toggle on = amber */
+[data-testid="stToggle"] input:checked + div {
+  background: var(--amber) !important;
+}
+
+/* Slider thumb */
+[data-testid="stSlider"] [role="slider"] {
+  background: var(--amber) !important;
+  border-color: var(--amber) !important;
+}
+
+/* ── HIDE STREAMLIT UI CHROME ── */
+
+/* Hide the Deploy button in the top-right toolbar */
+[data-testid="stToolbarActionButtonIcon"][aria-label*="deploy" i],
+[data-testid="stDeployButton"],
+.stDeployButton,
+[data-testid="stAppToolbar"] button[kind="deploy"],
+button[data-testid="baseButton-deploy"] {
+  display: none !important;
+}
+
+/* Hide Deploy via toolbar action buttons (Streamlit 1.32+) */
+[data-testid="stToolbar"] [data-testid="stBaseButton-deploy"],
+[data-testid="stHeader"] [title*="Deploy" i],
+[data-testid="stHeader"] [aria-label*="Deploy" i] {
+  display: none !important;
+}
+
+/* Broader toolbar deploy catch */
+header[data-testid="stHeader"] button:has(svg [data-testid*="deploy" i]),
+header[data-testid="stHeader"] [class*="deploy" i] {
+  display: none !important;
+}
+
+/* Hide "Developer options" item in the hamburger menu dropdown */
+[data-testid="main-menu-list"] li:has([data-testid*="developer" i]),
+[data-baseweb="menu"] li:has([aria-label*="developer" i]),
+ul[data-testid="main-menu-list"] > li:nth-last-child(-n+3) {
+  /* Fallback: hide by text content is not possible in pure CSS,
+     so we target the known Streamlit data-testid */
+  display: none !important;
+}
+[data-testid="main-menu-divider"]:last-of-type,
+[data-testid="main-menu-divider"] ~ [data-testid="main-menu-divider"] {
+  display: none !important;
+}
+
+/* Hide developer-specific menu items by their known Streamlit test ids */
+[data-testid="main-menu-list"] [data-testid*="developer"],
+[data-testid="main-menu-list"] [data-testid*="clearCache"],
+[data-testid="streamlit-developer-tools"] {
+  display: none !important;
+}
+
+/* Hide the keyboard_double_arrow (sidebar collapse/expand chevron) */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="collapsedControl"],
+button[aria-label="Close sidebar"],
+button[aria-label="Open sidebar"],
+[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"],
+.st-emotion-cache-h5rgaw,   /* common generated class for collapse btn */
+span.material-symbols-rounded:where([class*="keyboard_double"]),
+[data-testid="stSidebarCollapseButton"] {
+  display: none !important;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--amber); }
